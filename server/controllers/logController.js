@@ -75,14 +75,13 @@ router.put("/:id", validateSession, async (req, res) => {
             owner_id: id
         }
     };
-    console.log(query)
 
     const updatedLog = {
         description: description,
         definition: definition,
         result: result
     }
-    console.log(updatedLog)
+    
     try {
         await LogModel.update(updatedLog, query);
         res.status(200).json({message: "Log entry updated successfully"});
